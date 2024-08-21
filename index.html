@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Analysis and Approval Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <img src="bni-logo.png" alt="BNI Logo" class="logo">
+            <h1>BNI Kredit Analisis dan Management</h1>
+        </header>
+        <div class="content">
+            <aside>
+                <nav>
+                    <ul>
+                        <li><button onclick="showPage('login')">Beranda</button></li>
+                    </ul>
+                </nav>
+      	    <p>Kantor Cabang Kramat</p>
+            <p>Jl. Kramat Raya No.168, Jakarta Pusat</p>
+            <p>Telepon: (021) 390-9666</p>
+            </aside>
+            <main id="mainContent">
+                <!-- Login Page -->
+                <div id="login" class="page">
+                    <h2>Dapatkan penawaran menarik anda disini</h2>
+                    <button onclick="showPage('nasabahOptions')">Segera ajukan kredit anda!</button>
+                    <button onclick="showPage('salesLogin')">Masuk sebagai Sales</button>
+                </div>
+
+  <!-- Sales Login Page -->
+                <div id="salesLogin" class="page" style="display: none;">
+    <h2>Login Sales</h2>
+    <label for="salesName">Nama Sales:</label>
+    <input type="text" id="salesName" name="salesName" required placeholder="Masukkan Nama Sales">
+    <label for="salesPassword">Password:</label>
+    <input type="password" id="salesPassword" name="salesPassword" required placeholder="Masukkan Password">
+    <button type="button" onclick="salesLogin()">Masuk</button>
+</div>
+
+                <!-- Nasabah Options -->
+                <div id="nasabahOptions" class="page" style="display: none;">
+                    <h2>ajukan kredit anda disini</h2>
+                    <button onclick="showPage('debtorCreditAnalysis')">Ajukan Sekarang</button>
+                    <button onclick="showPage('installmentCalculator')"> simulasi kredit anda</button>
+                </div>
+
+                <!-- Debtor Credit Analysis Form -->
+                <div id="debtorCreditAnalysis" class="page" style="display: none;">
+                    <h2>Format Pengajuan Kredit</h2>
+                    <form id="creditForm">
+                        <label for="Nama">Nama:</label>
+                        <input type="text" id="Nama" name="Nama" required placeholder="Masukkan Nama Lengkap">
+
+<label for="Telepon">Nomor Telepon:</label>
+                        <input type="tel" id="Telepon" name="Telepon" required placeholder="Masukkan Nomor Telepon">
+
+                        <label for="Pendapatan">Pendapatan Tetap/Gaji Pokok (Rp):</label>
+                        <input type="number" id="Pendapatan" name="Pendapatan" required placeholder="Masukkan Pendapatan Bulanan">
+
+                        <label for="CicilanBerjalan">Cicilan Berjalan (Rp):</label>
+                        <input type="number" id="CicilanBerjalan" name="CicilanBerjalan" required placeholder="Masukkan Total Cicilan Berjalan">
+
+                        <label for="LamaBekerja">Lama Bekerja (tahun):</label>
+                        <input type="number" id="LamaBekerja" name="LamaBekerja" required placeholder="Masukkan Lama Bekerja (dalam tahun)">
+
+                        <label for="Kepegawaian">Kepegawaian:</label>
+                        <select id="Kepegawaian" name="Kepegawaian" required>
+                            <option value="Tetap">Tetap</option>
+                            <option value="Kontrak">Kontrak</option>
+                            <option value="Outsourcing">Outsourcing</option>
+                        </select>
+
+                        <label for="Instansi">Instansi:</label>
+                        <select id="Instansi" name="Instansi" required>
+                            <option value="Pemerintah">Pemerintah</option>
+                            <option value="BUMN">BUMN</option>
+                            <option value="Swasta">Swasta</option>
+                        </select>
+
+<!-- Dropdown Kantor Cabang -->
+                        <label for="Branch">Pilih Kantor Cabang BNI Terdekat:</label>
+                        <select id="Branch" name="Branch" required>
+                            <option value="KC Kramat" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">KC Kramat</option>
+                            <option value="Senen" data-sales-name="John Doe" data-sales-wa="08123456789">Senen</option>
+                            <option value="Pasar Senen Jaya" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Pasar Senen Jaya</option>
+                            <option value="RSPAD Gatot Subroto" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">RSPAD Gatot Subroto</option>
+                            <option value="Halim Perdana Kusuma" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Halim Perdana Kusuma</option>
+                            <option value="Askes" data-sales-name="John Doe" data-sales-wa="08123456789">Askes</option>
+                            <option value="Cempaka Putih" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Cempaka Putih</option>
+                            <option value="Garuda Gunung Sahari" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Garuda Gunung Sahari</option>
+                            <option value="Pasar Johar" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Pasar Johar</option>
+                            <option value="Kemayoran" data-sales-name="John Doe" data-sales-wa="08123456789">Kemayoran</option>
+                            <option value="Green Pramuka" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Green Pramuka</option>
+                            <option value="Departemen Sosial" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Departemen Sosial</option>
+                            <option value="Percetakan Negara" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Percetakan Negara</option>
+                            <option value="Garuda" data-sales-name="John Doe" data-sales-wa="08123456789">Garuda</option>
+                            <option value="Pasar Pramuka" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Pasar Pramuka</option>
+                            <option value="Cempaka Mas" data-sales-name="Rizky Irawan" data-sales-wa="08123456789">Cempaka Mas</option>
+                        </select>
+
+                        <!-- Document Uploads -->
+<h2>silahkan lengkapi dokumen anda atau hubungi sales kami</h2>
+                        <label for="KTP">Upload KTP:</label>
+                        <input type="file" id="KTP" name="KTP" required>
+
+                        <label for="NPWP">Upload NPWP:</label>
+                        <input type="file" id="NPWP" name="NPWP" required>
+
+                        <label for="KK">Upload KK:</label>
+                        <input type="file" id="KK" name="KK" required>
+
+                        <label for="SK">Upload Surat Keterangan Bekerja/SK Jabatan:</label>
+                        <input type="file" id="SK" name="SK" required>
+
+                        <label for="Tabungan">Upload Cover Depan Buku Tabungan BNI:</label>
+                        <input type="file" id="Tabungan" name="Tabungan" required>
+
+                        <label for="SlipGaji">Upload Slip Gaji 3 Bulan Terakhir:</label>
+                        <input type="file" id="SlipGaji" name="SlipGaji" required>
+
+                        <label for="MutasiRekening">Upload Mutasi Rekening 3 Bulan Terakhir:</label>
+                        <input type="file" id="MutasiRekening" name="MutasiRekening" required>
+
+                        <label for="BukuNikah">Upload Buku Nikah anda:</label>
+                        <input type="file" id="MutasiRekening" name="MutasiRekening" required>
+
+ 			<label for="Dokumenlain">Upload Dokumen lainya:</label>
+                        <input type="file" id="MutasiRekening" name="MutasiRekening" required>
+
+        <!-- Checkbox Persetujuan dan Link Disclaimer -->
+        <div class="disclaimer-container">
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                Saya menyetujui <a href="disclaimer.html" target="_blank">ketentuan yang berlaku di BNI</a>. Data yang dimasukkan adalah benar dan BNI tidak bertanggung jawab atas data yang tidak sesuai, disalahgunakan, ataupun hal-hal lainnya.
+            </label>
+        </div>
+
+
+                        <button type="button" onclick="analyzeCredit()">Analisa Kredit</button>
+                    </form>
+                </div>
+
+                <!-- Installment Calculator -->
+                <div id="installmentCalculator" class="page" style="display: none;">
+                    <h2>Kalkulator Cicilan</h2>
+                    <form id="installmentForm">
+                        <label for="loan-amount">Jumlah Pinjaman (Rp):</label>
+                        <input type="number" id="loan-amount" name="loan-amount" required placeholder="Masukkan Jumlah Pinjaman">
+
+                        <label for="loan-period">Periode Pinjaman (tahun):</label>
+                        <input type="number" id="loan-period" name="loan-period" required placeholder="Masukkan Periode Pinjaman (dalam tahun)">
+
+                        <button type="button" onclick="calculateInstallment()">Hitung Cicilan</button>
+                    </form>
+                    <div id="installmentResult"></div>
+                </div>
+
+                <!-- Sales Dashboard -->
+                <div id="salesDashboard" class="page" style="display: none;">
+                    <h2>Dashboard Sales</h2>
+                    <div id="debtorList"></div>
+                    <button onclick="clearDebtors()">Hapus Semua Data Calon Debitur</button>
+                </div>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2024 BNI. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

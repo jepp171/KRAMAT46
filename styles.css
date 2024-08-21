@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #FF6200; /* Warna Orange BNI */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+aside {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form select {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #FF6200; /* Warna Orange BNI */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #e55d00;
+}
+
+.debtor-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Media Queries for Mobile Devices */
+@media (min-width: 600px) {
+    .content {
+        flex-direction: row;
+    }
+    
+    aside {
+        width: 200px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        justify-content: flex-start;
+    }
+
+    .logo {
+        height: 50px;
+        margin-right: 20px;
+    }
+
+    button {
+        width: auto;
+        padding: 10px 20px;
+    }
+}
+
+
+/* Styling for the disclaimer container */
+.disclaimer-container {
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px; /* Adjust margin as needed */
+    padding-left: 10px; /* Add padding as needed */
+}
+
+/* Optional: Styling for the link */
+.disclaimer-container a {
+    color: #007BFF; /* Adjust color to match your design */
+    text-decoration: none;
+}
+
+.disclaimer-container a:hover {
+    text-decoration: underline;
+}
